@@ -56,8 +56,12 @@ fun LoginScreen(navController: NavController, viewModel: LoginScreenViewModel= v
             if(showLoginForm.value) {
                 UserForm(loading = false, isCreateAccount = false) { email, password ->
                     //TODO FB login
-                    viewModel.signInWithEmailANdPassword(email,password,){
-                        navController.navigate(AppScreens.HomeScreen.name)
+                    viewModel.signInWithEmailANdPassword(email,password,) {
+                        navController.navigate(AppScreens.HomeScreen.name) {
+                            popUpTo (AppScreens.LoginScreen.name) {
+                            inclusive = true
+                        }
+                    }
                     }
                     Log.d("Form", "ReaderLoginScreen: $email $password")
                 }
@@ -65,7 +69,11 @@ fun LoginScreen(navController: NavController, viewModel: LoginScreenViewModel= v
                 UserForm(loading = false, isCreateAccount = true,) { email, password ->
 
                     viewModel.createUserWithEmailANdPassword(email, password){
-                        navController.navigate(AppScreens.HomeScreen.name)
+                        navController.navigate(AppScreens.HomeScreen.name) {
+                            popUpTo (AppScreens.LoginScreen.name) {
+                                inclusive = true
+                            }
+                        }
                     }
                     Log.d("Form", "LoginScreen: $email $password")
                 }
