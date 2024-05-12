@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Zarvis_dashboard</string>
+    <string name="create_act">Please enter a valid email and a password that is at least 6 characters long</string>
+    <string name="login_cred">Enter your Credentials</string>
+</resources>
